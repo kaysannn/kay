@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Data ke Spreadsheet</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e6e6e6, #ffffff); /* Bright grey gradient */
+            color: #333333; /* Dark grey color */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #form-container {
+            background-color: #f2f2f2; /* Light grey */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #DC143C; /* Crimson */
+            text-align: center;
+        }
+
+        label {
+            color: #333333; /* Dark grey */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff; /* White */
+            color: #333333; /* Dark grey */
+        }
+
+        input[type="submit"] {
+            background-color: #ff9900; /* Orange */
+            color: #ffffff; /* White */
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff6600; /* Darker orange on hover */
+        }
+
+        /* Button for camera */
+        #kameraButton {
+            background-color: #33ccff; /* Light blue */
+            color: #ffffff; /* White */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #kameraButton:hover {
+            background-color: #0099cc; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <h2>PENGINPUTAN DATA </h2>
+        <form action="https://script.google.com/macros/s/AKfycby_hcmNZjlGPQboLtvrj4P1DvFrAhF2reQ8rTaScCRHtLjdZxvKK2OpkSNXsPcEQaML/exec" method="post" enctype="multipart/form-data">
+            <label for="no">NOMOR</label>
+            <input type="number" id="no" name="no" required />
+            <br /><br />
+            <label for="nama">NAMA KEGIATAN:</label>
+            <input type="text" id="nama" name="nama" required />
+            <br /><br />
+            <label for="jenis">PILIH JENIS KEGIATAN:</label>
+            <select name="jenis" id="jenis" required>
+                <option></option>
+                <option value="kbm">KBM</option>
+                <option value="nonkbm">NON KBM</option>
+            </select>
+            <br /><br />
+            <label for="tgl_kgt">TANGGAL KEGIATAN:</label>
+            <input type="date" id="tgl_kgt" name="tgl_kgt" required />
+            <br /><br />
+            <label for="uraian">URAIAN KEGIATAN:</label>
+            <br />
+            <textarea cols="60" rows="5" id="uraian" name="uraian" required></textarea>
+            <br /><br />
+            <label for="target">TARGET CAPAIAN:</label>
+            <br />
+            <textarea cols="60" rows="5" id="target" name="target" required></textarea>
+            <br /><br />
+            <label for="buktis">Bukti Kegiatan:</label>
+            <input type="file" name="buktis" id="buktis" accept="image/*" />
+            <input type="hidden" id="buktisEnc" name="buktisEnc" />
+            <button type="button" id="kameraButton">Ambil Foto dari Kamera</button>
+            <input type="submit" value="Simpan Data" />
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("buktis").addEventListener("change", function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                document.getElementById("buktisEnc").value =
+                reader.result.split(",")[1];
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById("kameraButton").addEventListener("click", function () {
+            document.getElementById("buktis").click();
+        });
+    </script>
+</body>
+</html>
