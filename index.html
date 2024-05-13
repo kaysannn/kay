@@ -6,7 +6,7 @@
     <title>Input Data ke Spreadsheet</title>
     <style>
         body {
-            background: linear-gradient(135deg, #1E90FF, #00CED1); /* Gradient biru laut */
+            background: linear-gradient(135deg, #0077FF, #00CED1); /* Gradient biru laut */
             color: #333333; /* Warna teks gelap */
             font-family: Arial, sans-serif;
             display: flex;
@@ -17,14 +17,16 @@
         }
 
         #form-container {
-            background-color: rgba(255, 255, 255, 0.8); /* Warna putih transparan */
+            background-color: rgba(255, 255, 255, 0.9); /* Warna putih transparan */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;
         }
 
         h2 {
-            color: #00BFFF; /* Biru laut */
+            color: #0077FF; /* Biru laut */
             text-align: center;
         }
 
@@ -36,7 +38,7 @@
         input[type="number"],
         select,
         textarea {
-            width: 100%;
+            width: calc(100% - 22px); /* 22px untuk padding */
             padding: 10px;
             margin-bottom: 15px;
             border: none;
@@ -54,6 +56,7 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s ease;
+            width: 100%;
         }
 
         input[type="submit"]:hover {
@@ -71,54 +74,61 @@
             font-size: 14px;
             margin-bottom: 15px;
             transition: background-color 0.3s ease;
+            width: 100%;
         }
 
         #kameraButton:hover {
             background-color: #4682B4; /* Biru laut saat dihover */
         }
+
+        /* Elemen dekoratif */
+        .divider {
+            border-top: 1px solid #0077FF; /* Garis biru laut */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #form-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
     <div id="form-container">
-        <h2>PENGINPUTAN DATA </h2>
+        <h2>PENGINPUTAN DATA</h2>
         <form action="https://script.google.com/macros/s/AKfycbxJ4XkaqR4hg_OJ5ZaUAo379dOM_MySdYHIfIg6uxMxbchX5qkyQYrjrouD49Mm7BYH/exec" method="post" enctype="multipart/form-data">
             <label for="no">NOMOR</label>
             <input type="number" id="no" name="no" required />
-            <br /><br />
             <label for="nama">NAMA KEGIATAN:</label>
             <input type="text" id="nama" name="nama" required />
-            <br /><br />
-            <label for="jabatan">jabatan:</label>
-        <select name="jabatan" id="jabatan" required>
-          <option></option>
-          <option value="Guru">Guru</option>
-          <option value="Wali kelas">Wali kelas</option>
-          <option value="Ketua jurusan">Ketua jurusan</option>
-          <option value="Wakil kepala sekolah">Wakil kepala sekolah</option>
-        </select>
-        <br /><br />
+            <label for="jabatan">JABATAN:</label>
+            <select name="jabatan" id="jabatan" required>
+                <option></option>
+                <option value="Guru">Guru</option>
+                <option value="Wali kelas">Wali kelas</option>
+                <option value="Ketua jurusan">Ketua jurusan</option>
+                <option value="Wakil kepala sekolah">Wakil kepala sekolah</option>
+            </select>
             <label for="jenis">PILIH JENIS KEGIATAN:</label>
             <select name="jenis" id="jenis" required>
                 <option></option>
                 <option value="kbm">KBM</option>
                 <option value="nonkbm">NON KBM</option>
             </select>
-            <br /><br />
             <label for="tgl_kgt">TANGGAL KEGIATAN:</label>
             <input type="date" id="tgl_kgt" name="tgl_kgt" required />
-            <br /><br />
             <label for="uraian">URAIAN KEGIATAN:</label>
-            <br />
             <textarea cols="60" rows="5" id="uraian" name="uraian" required></textarea>
-            <br /><br />
             <label for="target">TARGET CAPAIAN:</label>
-            <br />
             <textarea cols="60" rows="5" id="target" name="target" required></textarea>
-            <br /><br />
             <label for="buktis">Bukti Kegiatan:</label>
             <input type="file" name="buktis" id="buktis" accept="image/*" />
             <input type="hidden" id="buktisEnc" name="buktisEnc" />
             <button type="button" id="kameraButton">Ambil Foto dari Kamera</button>
+            <div class="divider"></div>
             <input type="submit" value="Simpan Data" />
         </form>
     </div>
