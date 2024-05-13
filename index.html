@@ -6,8 +6,8 @@
     <title>Input Data ke Spreadsheet</title>
     <style>
         body {
-            background: linear-gradient(135deg, #e6e6e6, #ffffff); /* Bright grey gradient */
-            color: #333333; /* Dark grey color */
+            background: linear-gradient(135deg, #1E90FF, #00CED1); /* Gradient biru laut */
+            color: #333333; /* Warna teks gelap */
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -17,19 +17,19 @@
         }
 
         #form-container {
-            background-color: #f2f2f2; /* Light grey */
+            background-color: rgba(255, 255, 255, 0.8); /* Warna putih transparan */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
-            color: #DC143C; /* Crimson */
+            color: #00BFFF; /* Biru laut */
             text-align: center;
         }
 
         label {
-            color: #333333; /* Dark grey */
+            color: #333333; /* Warna teks gelap */
         }
 
         input[type="text"],
@@ -41,13 +41,13 @@
             margin-bottom: 15px;
             border: none;
             border-radius: 5px;
-            background-color: #ffffff; /* White */
-            color: #333333; /* Dark grey */
+            background-color: #ffffff; /* Putih */
+            color: #333333; /* Warna teks gelap */
         }
 
         input[type="submit"] {
-            background-color: #ff9900; /* Orange */
-            color: #ffffff; /* White */
+            background-color: #20B2AA; /* Biru hijau laut */
+            color: #ffffff; /* Putih */
             padding: 12px 20px;
             border: none;
             border-radius: 5px;
@@ -57,13 +57,13 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #ff6600; /* Darker orange on hover */
+            background-color: #008B8B; /* Biru gelap saat dihover */
         }
 
-        /* Button for camera */
+        /* Tombol untuk kamera */
         #kameraButton {
-            background-color: #33ccff; /* Light blue */
-            color: #ffffff; /* White */
+            background-color: #87CEEB; /* Biru muda laut */
+            color: #ffffff; /* Putih */
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
@@ -74,7 +74,7 @@
         }
 
         #kameraButton:hover {
-            background-color: #0099cc; /* Darker blue on hover */
+            background-color: #4682B4; /* Biru laut saat dihover */
         }
     </style>
 </head>
@@ -88,8 +88,8 @@
             <label for="nama">NAMA KEGIATAN:</label>
             <input type="text" id="nama" name="nama" required />
             <br /><br />
-             <label for="JABATAN">JABATAN:</label>
-        <select name="JABATAN" id="JABATAN" required>
+            <label for="jabatan">jabatan:</label>
+        <select name="jabatan" id="jabatan" required>
           <option></option>
           <option value="Guru">Guru</option>
           <option value="Wali kelas">Wali kelas</option>
