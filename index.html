@@ -6,8 +6,8 @@
     <title>Input Data ke Spreadsheet</title>
     <style>
         body {
-            background: linear-gradient(135deg, #0077FF, #00CED1); /* Gradient biru laut */
-            color: #333333; /* Warna teks gelap */
+            background: linear-gradient(135deg, #265073, #2D9596); 
+            color: #000000; 
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -17,118 +17,98 @@
         }
 
         #form-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Warna putih transparan */
+            background-color: #2D9596; 
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            width: 80%;
-            max-width: 600px;
+            max-width: 600px; /* Menentukan lebar maksimum form */
+            width: 90%; /* Lebar form secara keseluruhan */
         }
 
         h2 {
-            color: #0077FF; /* Biru laut */
+            color: #ffcc00; 
             text-align: center;
         }
 
         label {
-            color: #333333; /* Warna teks gelap */
+            color: #000000;
+            margin-bottom: 5px;
+            display: block;
         }
 
         input[type="text"],
         input[type="number"],
         select,
         textarea {
-            width: calc(100% - 22px); /* 22px untuk padding */
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: none;
             border-radius: 5px;
-            background-color: #ffffff; /* Putih */
-            color: #333333; /* Warna teks gelap */
+            background-color: #e0e0e0; 
+            color: #000000; 
         }
 
-        input[type="submit"] {
-            background-color: #20B2AA; /* Biru hijau laut */
-            color: #ffffff; /* Putih */
+        input[type="submit"],
+        #kameraButton {
+            width: 100%;
             padding: 12px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s ease;
-            width: 100%;
         }
 
-        input[type="submit"]:hover {
-            background-color: #008B8B; /* Biru gelap saat dihover */
+        input[type="file"] {
+            display: none; /* Menyembunyikan input file */
         }
 
-        /* Tombol untuk kamera */
         #kameraButton {
-            background-color: #87CEEB; /* Biru muda laut */
-            color: #ffffff; /* Putih */
-            border: none;
-            border-radius: 5px;
+            background-color: #00ccff; 
+            color: #262626; 
             padding: 10px 20px;
-            cursor: pointer;
             font-size: 14px;
             margin-bottom: 15px;
-            transition: background-color 0.3s ease;
-            width: 100%;
         }
 
         #kameraButton:hover {
-            background-color: #4682B4; /* Biru laut saat dihover */
-        }
-
-        /* Elemen dekoratif */
-        .divider {
-            border-top: 1px solid #0077FF; /* Garis biru laut */
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        #form-container img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+            background-color: #0099cc; 
         }
     </style>
 </head>
 <body>
     <div id="form-container">
-        <h2>PENGINPUTAN DATA</h2>
-        <form action="https://script.google.com/macros/s/AKfycbxJ4XkaqR4hg_OJ5ZaUAo379dOM_MySdYHIfIg6uxMxbchX5qkyQYrjrouD49Mm7BYH/exec" method="post" enctype="multipart/form-data">
-            <label for="no">NOMOR</label>
+        <h2>INPUT DATA KE SPREADSHEET</h2>
+        <form action="https://script.google.com/macros/s/AKfycbwozy0Z3aVs9_qEbjmldebBS5VE5U11Hkj5MdaSleECxVUTK6hqM0sdtCDOlS0BXC3G/exec" method="post" enctype="multipart/form-data">
+            <label for="no">Nomor</label>
             <input type="number" id="no" name="no" required />
-            <label for="nama">NAMA KEGIATAN:</label>
+            <br>
+            <label for="nama">Nama Kegiatan:</label>
             <input type="text" id="nama" name="nama" required />
-            <label for="jabatan">JABATAN:</label>
-            <select name="jabatan" id="jabatan" required>
-                <option></option>
-                <option value="Guru">Guru</option>
-                <option value="Wali kelas">Wali kelas</option>
-                <option value="Ketua jurusan">Ketua jurusan</option>
-                <option value="Wakil kepala sekolah">Wakil kepala sekolah</option>
-            </select>
-            <label for="jenis">PILIH JENIS KEGIATAN:</label>
+            <br>
+            <label for="jenis">Pilih Jenis Kegiatan:</label>
             <select name="jenis" id="jenis" required>
                 <option></option>
                 <option value="kbm">KBM</option>
-                <option value="nonkbm">NON KBM</option>
+                <option value="nonkbm">Non KBM</option>
             </select>
-            <label for="tgl_kgt">TANGGAL KEGIATAN:</label>
+            <br /><br />
+            <label for="tgl_kgt">Tanggal kegiatan:</label>
             <input type="date" id="tgl_kgt" name="tgl_kgt" required />
-            <label for="uraian">URAIAN KEGIATAN:</label>
+            <br /><br />
+            <label for="uraian">Uraian Kegiatan:</label>
+            <br />
             <textarea cols="60" rows="5" id="uraian" name="uraian" required></textarea>
-            <label for="target">TARGET CAPAIAN:</label>
+            <br /><br />
+            <label for="target">Target Capaian:</label>
+            <br />
             <textarea cols="60" rows="5" id="target" name="target" required></textarea>
+            <br /><br />
             <label for="buktis">Bukti Kegiatan:</label>
             <input type="file" name="buktis" id="buktis" accept="image/*" />
             <input type="hidden" id="buktisEnc" name="buktisEnc" />
             <button type="button" id="kameraButton">Ambil Foto dari Kamera</button>
-            <div class="divider"></div>
             <input type="submit" value="Simpan Data" />
         </form>
     </div>
